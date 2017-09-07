@@ -11802,7 +11802,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11832,6 +11832,20 @@ div#notebook {
 <div class="output_wrapper">
 <div class="output">
 
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>c:\python27\lib\site-packages\sklearn\cross_validation.py:44: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+  &#34;This module will be removed in 0.20.&#34;, DeprecationWarning)
+c:\python27\lib\site-packages\sklearn\learning_curve.py:23: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the functions are moved. This module will be removed in 0.20
+  DeprecationWarning)
+</pre>
+</div>
+</div>
 
 <div class="output_area">
 
@@ -11876,23 +11890,23 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Minimum price of the data</span>
-<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Maximum price of the data</span>
-<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Mean price of the data</span>
-<span class="n">mean_price</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+<span class="n">mean_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Median price of the data</span>
-<span class="n">median_price</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+<span class="n">median_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Standard deviation of prices of the data</span>
-<span class="n">std_price</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+<span class="n">std_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># Show the calculated statistics</span>
 <span class="k">print</span> <span class="s2">&quot;Statistics for Boston housing dataset:</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -11923,7 +11937,7 @@ Minimum price: $105,000.00
 Maximum price: $1,024,800.00
 Mean price: $454,342.94
 Median price $438,900.00
-Standard deviation of prices: $165,340.28
+Standard deviation of prices: $165,171.13
 </pre>
 </div>
 </div>
@@ -11959,9 +11973,9 @@ Standard deviation of prices: $165,340.28
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <ul>
-<li>price will increase as the RM increases</li>
-<li>price will increase as the LSTAT decreases</li>
-<li>price will increase as the PTRATIO decreases</li>
+<li>price will increase as the RM increases, as more RM typically means larger house, which implies higher price</li>
+<li>price will increase as the LSTAT decreases, as less percent of lower class workers means the neighborhood is more affluent</li>
+<li>price will increase as the PTRATIO decreases, as more teacher means more individual attention to each children, thus a higher price.</li>
 </ul>
 
 </div>
@@ -13282,7 +13296,7 @@ Think about the pros and cons of adding more training points based on if the tra
 <p><strong>Answer: </strong>
 max-depth 3 is the correct model among the four.
 Both of the training points and testing points turn to converge to 0.8 when more models are added.
-Cetainly, more training points are goog for this model.</p>
+Adding more training data will be beneficial to the model when the curves haven't converged very well. However, after the curves have converged(aroung 400 training data in our case), add more data to the model will only improve the model marginially.</p>
 
 </div>
 </div>
@@ -13745,7 +13759,7 @@ GJcxV4RVWTDGtElEzqhqR5OtMZ2CXd40xhgTMqynZ4wxJmRYT88YY0zIsKRnjDEmZFjSM8YYEzIs
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong><br>
-With the maximum depth of 1, the model suffer from high bias which can be infer from the low score at the depth.<br>
+With the maximum depth of 1, the model suffer from high bias which can be infer from the low score at the depth which can be observed from both the complexity curve and learning curve.
 With the maximum depth of 10, the model suffer from high variance. This can be infer from a large separation between the training score and the validation score.</p>
 
 </div>
@@ -13802,7 +13816,7 @@ Max-depth of 3 will be a good generalization of the data. As we can see from the
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
-Grid search is a technique that is used to select a model from a family of similar modelS with difference in hyperparameters. For instance SVM, one will need to use grid search to pick the right gamma and kernel.</p>
+Grid search is a technique that is used to select a model from a family of similar models with difference in hyperparameters. For instance SVM, one will need to use grid search to pick the right gamma and kernel. The grid search technique will typically be using accuracy score as the performance metric to evaluate the combination of the hyperparameter. Then, the hyperparameter combination with the highest accuracy score will be chosen to be used in the real model.</p>
 
 </div>
 </div>
@@ -13970,7 +13984,7 @@ For the <code>fit_model</code> function in the code cell below, you will need to
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong> Hint: </strong> The answer comes from the output of the code snipped above.</p>
 <p><strong>Answer: </strong>
-4</p>
+4, the optimal model is very close to my prediction in question 6, i.e. depth is 3.</p>
 
 </div>
 </div>
@@ -14067,7 +14081,7 @@ Predicted selling price for Client 3&#39;s home: $931,636.36
 Predicted selling price for Client 1's home: 403025.00<br>
 Predicted selling price for Client 2's home: 237478.72<br>
 Predicted selling price for Client 3's home: 931636.36<br>
-Yes, it is reasonable</p>
+Yes, it is reasonable. Client 3's home have vary large number of rooms, very low neighborhood poverty rate and very low student-to-teacher ratio, so it is sensible to have a very high price.This reasoning is also true for client 2, as the home of client 2 has small number of rooms, relatively high neighborhood poverty rate and very high student-to-teacher ratio, thus a very low price. The price for client 1 is in the middle of the price for Client 2 and Client 3, since the RM, LSTAT and PT ratio are in the middle.</p>
 
 </div>
 </div>
